@@ -22,12 +22,12 @@ def test_check_all_users():
 @pytest.mark.database
 def test_check_user_sergii():
     db = Database()
-    user = db.get_user_address_by_name('Sergii')
+    user = db.get_user_address_by_name("Sergii")
 
-    assert user[0][0] == 'Maydan Nezalezhnosti 1'
-    assert user[0][1] == 'Kyiv'
-    assert user[0][2] == '3127'
-    assert user[0][3] == 'Ukraine'
+    assert user[0][0] == "Maydan Nezalezhnosti 1"
+    assert user[0][1] == "Kyiv"
+    assert user[0][2] == "3127"
+    assert user[0][3] == "Ukraine"
 
 
 @pytest.mark.database
@@ -42,8 +42,8 @@ def test_product_qnt_update():
 @pytest.mark.database
 def test_product_insert():
     db = Database()
-    db.insert_product(4, 'печиво', 'солодке', 30)
-    prod_qnt =db.select_product_qnt_by_id(4)
+    db.insert_product(4, "печиво", "солодке", 30)
+    prod_qnt = db.select_product_qnt_by_id(4)
 
     assert prod_qnt[0][0] == 30
 
@@ -51,7 +51,7 @@ def test_product_insert():
 @pytest.mark.database
 def test_product_delete():
     db = Database()
-    db.insert_product(99, 'test', 'data', 999)
+    db.insert_product(99, "test", "data", 999)
     db.delete_product_by_id(99)
     qnt = db.select_product_qnt_by_id(99)
 
@@ -68,9 +68,9 @@ def test_detailed_orders():
 
     # Check data structure
     assert orders[0][0] == 1
-    assert orders[0][1] == 'Sergii'
-    assert orders[0][2] == 'солодка вода'
-    assert orders[0][3] == 'з цукром'
+    assert orders[0][1] == "Sergii"
+    assert orders[0][2] == "солодка вода"
+    assert orders[0][3] == "з цукром"
 
 
 # ----------------- Individual Part ---------------------
@@ -78,7 +78,7 @@ def test_detailed_orders():
 def test_product_insert_invalid_id_type():
     try:
         db = Database()
-        db.insert_product('r', 'new product', 'desc', 113)
+        db.insert_product("r", "new product", "desc", 113)
         res = True
     except OperationalError:
         res = False
@@ -102,25 +102,25 @@ def test_order_insert_valid_data():
 @pytest.mark.database
 def test_user_insert():
     db = Database()
-    db.insert_user(3, 'Elena', 'New Street', 'Lviv', '79070', 'Ukraine')
+    db.insert_user(3, "Elena", "New Street", "Lviv", "79070", "Ukraine")
     user = db.get_user_name_by_id(3)
 
-    assert user[0][0] == 'Elena'
+    assert user[0][0] == "Elena"
 
 
 @pytest.mark.database
 def test_user_name_update():
     db = Database()
-    db.update_user_name_by_id(3, 'Olena')
+    db.update_user_name_by_id(3, "Olena")
     user = db.get_user_name_by_id(3)
 
-    assert user[0][0] == 'Olena'
+    assert user[0][0] == "Olena"
 
 
 @pytest.mark.database
 def test_user_delete():
     db = Database()
-    db.insert_user(99, 'Olena', 'New Street', 'Lviv', '79070', 'Ukraine')
+    db.insert_user(99, "Olena", "New Street", "Lviv", "79070", "Ukraine")
     db.delete_user_by_id(99)
     qnt = db.get_user_name_by_id(99)
 
