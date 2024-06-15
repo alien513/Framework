@@ -1,15 +1,11 @@
 import pytest
-
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 
 
 @pytest.mark.ui
 def test_check_incorrect_username():
-    driver = webdriver.Chrome(
-        service=Service(r"/mnt/d/learn/Framework/" + "chromedriver.exe")
-    )
+    driver = webdriver.Chrome()
     driver.get("https://github.com/login")
 
     login_elem = driver.find_element(By.ID, "login_field")

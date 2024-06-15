@@ -51,7 +51,8 @@ def test_product_insert():
 @pytest.mark.database
 def test_product_delete():
     db = Database()
-    db.insert_product(99, "test", "data", 999)
+    big_num = 999
+    db.insert_product(99, "test", "data", big_num)
     db.delete_product_by_id(99)
     qnt = db.select_product_qnt_by_id(99)
 

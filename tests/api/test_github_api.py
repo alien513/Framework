@@ -43,7 +43,7 @@ def test_emojis_status(github_api):
 @pytest.mark.api
 def test_commit_count(github_api):
     r = github_api.get_commits()
-    assert len(r) == 3
+    assert len(r) == 11
 
 
 @pytest.mark.api
