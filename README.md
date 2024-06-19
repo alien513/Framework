@@ -7,3 +7,8 @@
 <li>SQLite</li>
 <li>Selenuim</li>
 </ul>
+<ul><b>Used environment:</b>
+<li>WSL</li>
+<li>Visual Studio Code (VSCode)</li>
+</ul>
+<p>All the code was written in Python in VSCode. For testing, the Pytest framework was used both directly in WSL (for API and SQLite database testing) and indirectly in VSCode (for UI testing with Selenium). The whole project was aimed at maximizing the diversity of the automated testing experience.</p>
